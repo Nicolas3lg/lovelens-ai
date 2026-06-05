@@ -114,30 +114,33 @@ with st.sidebar:
         "Logistic Regression"
     ])
 
-    st.markdown("---")
+   # Taruh kode ini tepat di bawah kode selectbox/slider Pipeline Configuration lu
+    st.sidebar.markdown("---")
+    
+    members = [
+        ("JY", "Chia Jin Yi",        "#0077B6"),
+        ("ES", "Esther Kong",       "#1E7C3D"),
+        ("JX", "Kor Jing Xiang",    "#B85C00"),
+        ("TJ", "Ng Tan Jun",        "#C0392B"),
+        ("PS", "Kam Pue Shan",      "#6B21A8"),
+        ("NN", "Nicolas Nicodemus", "#1E2761"),
+    ]
 
-members = [
-    ("JY", "Chia Jin Yi",        "#0077B6"),
-    ("ES", "Esther Kong",       "#1E7C3D"),
-    ("JX", "Kor Jing Xiang",    "#B85C00"),
-    ("TJ", "Ng Tan Jun",        "#C0392B"),
-    ("PS", "Kam Pue Shan",      "#6B21A8"),
-    ("NN", "Nicolas Nicodemus", "#1E2761"),
-]
-
-pills_html = '<div class="member-section-label">Group 6 Members</div><div class="member-grid">'
-for initials, name, color in members: # Di sini cuma panggil 3 variabel (Udah bener!)
-    pills_html += f"""
-    <div class="member-pill">
-        <div class="member-avatar" style="background:{color}18; border: 1px solid {color}60;">
-            <span style="color:{color};">{initials}</span>
-        </div>
-        <div>
-            <div class="member-name" style="line-height: 2.2;">{name}</div>
-        </div>
-    </div>"""
-pills_html += '</div>'
-st.markdown(pills_html, unsafe_allow_html=True)
+    pills_html = '<div class="member-section-label" style="font-weight: bold; margin-bottom: 10px;">Group 6 Members</div><div class="member-grid">'
+    for initials, name, color in members:
+        pills_html += f"""
+        <div class="member-pill" style="display: flex; align-items: center; margin-bottom: 8px;">
+            <div class="member-avatar" style="background:{color}18; border: 1px solid {color}60; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
+                <span style="color:{color}; font-size: 12px; font-weight: bold;">{initials}</span>
+            </div>
+            <div>
+                <div class="member-name" style="font-size: 14px;">{name}</div>
+            </div>
+        </div>"""
+    pills_html += '</div>'
+    
+    # Memastikan kode HTML ini dirender di dalam SIDEBAR bawah kiri
+    st.sidebar.markdown(pills_html, unsafe_allow_html=True)
 
 # ==========================================
 # 3. REAL DATA SINKRON DENGAN SLIDE PRESENTASI
