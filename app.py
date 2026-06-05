@@ -114,31 +114,7 @@ with st.sidebar:
         "Logistic Regression"
     ])
 
-    st.markdown("---")
-
-    members = [
-        ("JY", "Chia Jin Yi",    "Team Lead & Integration",  "#0077B6"),
-        ("ES", "Esther Kong",    "Data Preprocessing Lead",  "#1E7C3D"),
-        ("JX", "Kor Jing Xiang", "Baseline Model Dev",       "#B85C00"),
-        ("TJ", "Ng Tan Jun",     "Advanced ML Developer",    "#C0392B"),
-        ("PS", "Kam Pue Shan",   "Boundary & Clustering",    "#6B21A8"),
-        ("NN", "Nicolas Nicodemus",      "UI & Visualization Dev",   "#1E2761"),
-    ]
-
-    pills_html = '<div class="member-section-label">Group 6 Members</div><div class="member-grid">'
-    for initials, name, role, color in members:
-        pills_html += f"""
-        <div class="member-pill">
-            <div class="member-avatar" style="background:{color}18; border: 1px solid {color}60;">
-                <span style="color:{color};">{initials}</span>
-            </div>
-            <div>
-                <div class="member-name">{name}</div>
-                <div class="member-role">{role}</div>
-            </div>
-        </div>"""
-    pills_html += '</div>'
-    st.markdown(pills_html, unsafe_allow_html=True)
+    
 
 # ==========================================
 # 3. REAL DATA SINKRON DENGAN SLIDE PRESENTASI
