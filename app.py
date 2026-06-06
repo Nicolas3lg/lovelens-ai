@@ -147,11 +147,11 @@ with st.sidebar:
 # ==========================================
 MODEL_DATA = pd.DataFrame({
     "Model": ["XGBoost (Tuned)", "Logistic Regression", "Random Forest", "Decision Tree", "Linear SVM"],
-    "Accuracy": [0.7385, 0.5023, 0.7401, 0.6541, 0.5067],
-    "Precision": [0.2039, 0.2002, 0.2059, 0.1984, 0.2010],
-    "Recall": [0.1100, 0.5045, 0.1090, 0.2452, 0.5005],
-    "F1-Score": [0.7572, 0.7559, 0.7541, 0.7349, 0.7300],  # Angka F1-score diselaraskan dengan Slide 10 Canva
-    "ROC-AUC": [0.9190, 0.9200, 0.9100, 0.4993, 0.5062]   # ROC-AUC diperbaiki berdasarkan Slide 11-12 Canva
+    "Accuracy": [0.7550, 0.7567, 0.7541, 0.7335, 0.7464],
+    "Precision": [0.7559, 0.7552, 0.7542, 0.7370, 0.7365],
+    "Recall": [0.7550, 0.7567, 0.7541, 0.7335, 0.7464],
+    "F1-Score": [0.7554, 0.7559, 0.7541, 0.7349, 0.7300],  # Angka F1-score diselaraskan dengan Slide 10 Canva
+    "ROC-AUC": [0.9190, 0.9099, 0.9082, 0.8923, 0.9063]   # ROC-AUC diperbaiki berdasarkan Slide 11-12 Canva
 })
 
 LIGHT_TEMPLATE = "plotly_white"
@@ -353,15 +353,15 @@ elif menu == "📊 Model Evaluation":
 
         # ── DISTRIBUSI ANGKA MATRIKS UNIK UNTUK TIAP MODEL (ANTI-KEMBAR) ──
         if "XGBoost" in selected_model:
-            cm = np.array([[6420, 90, 110], [2050, 280, 70], [1050, 50, 110]])
+            cm = np.array([[2666, 632, 0], [579, 2096, 624], [0, 615, 2788]])
         elif "Random Forest" in selected_model:
-            cm = np.array([[6390, 110, 120], [2010, 310, 80], [1020, 60, 130]])  # Angka sudah digeser dikit
+            cm = np.array([[2649, 648, 1], [570, 2069, 660], [0, 580, 2823]])  # Angka sudah digeser dikit
         elif "Decision Tree" in selected_model:
-            cm = np.array([[5100, 800, 640], [1800, 410, 420], [800, 150, 180]])
+            cm = np.array([[2662, 630, 6], [680, 2045, 574], [2, 773, 2628]])
         elif "Logistic Regression" in selected_model:
-            cm = np.array([[3800, 1500, 1240], [1100, 900, 630], [500, 400, 400]])
+            cm = np.array([[2709, 589, 0], [615, 2042, 642], [0, 587, 2816]])
         else:  # Untuk Linear SVM
-            cm = np.array([[3950, 1350, 1240], [1120, 880, 630], [510, 390, 400]]) # Angka sudah digeser dikit
+            cm = np.array([[2922, 372, 4], [914, 1467, 918], [3, 325, 3075]]) # Angka sudah digeser dikit
 
         labels = ["Low (0)", "Medium (1)", "High (2)"]
         fig_cm = px.imshow(cm, text_auto=True, x=labels, y=labels,
